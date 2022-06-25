@@ -1,5 +1,5 @@
 body.colormode_transition, body.colormode_transition * {
-    transition: all 0.5s;
+    transition: all 0.25s;
 }
 
 div#colormode {
@@ -7,13 +7,14 @@ div#colormode {
     display: inline-block;
     flex-direction: row;
     align-items: center;
-    left: calc(100% - 0.5vmax - 2.5vmax);
-    top: 0.5vmax;
-    width: 2.5vmax;
-    height: 1.25vmax;
+    left: calc(100% - 10px - 48px - 0.5vmax);
+    top: 10px;
+    width: 48px;
+    height: 24px;
     cursor: pointer;
     transition: all 0.25s;
 }
+
 body.lightmode div#colormode .modes .light, body.lightmode div#colormode .modes .dark {
     background-color: #FD4405;
 }
@@ -53,9 +54,9 @@ div#colormode .modes .dark {
 div#colormode .select {
     position: relative;
     display: block;
-    top: calc(-100% + 17%);
-    width: calc(50% - 25%);
-    height: calc(100% - 50%);
+    top: calc(-100% + 22.5%);
+    width: calc(25%);
+    height: calc(50%);
     background-color: #efefef;
     background-position: 50% 50%;
     border: 0.1vmax rgba(0, 0, 0, 0.25) solid;
@@ -63,8 +64,8 @@ div#colormode .select {
     transition: all 0.25s;
 }
 body.lightmode div#colormode .select {
-    left: calc(50% + 10%);
+    left: 62.5%;
 }
 body.darkmode div#colormode .select {
-    left: 10%;
+    left: 12.5%;
 }

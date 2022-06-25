@@ -6,14 +6,21 @@
     <!--  -->
 
     <link rel="stylesheet" type="text/css" href="/css/colormode.css">
-    <script src="js/colormode.js"></script>
+    <script src="/js/colormode.js"></script>
+
+    <!--  -->
+
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/md-pages.css">
+    <script src="/js/md-pages.js"></script>
 
     <!--  -->
 
     <link rel="stylesheet" type="text/css" href="/css/index.css">
 
-    <script src="js/particles.min.js"></script>
-    <script src="js/manage_particles.js"></script>
+
+    <script src="/js/particles.min.js"></script>
+    <script src="/js/manage_particles.js"></script>
 </head>
 <body>
 
@@ -21,9 +28,22 @@
         <div class="banner">
             <div id="particles-js"></div>
             <div class="banner_image"></div>
+            <div class="background"></div>
         </div>
         <div class="content">
-            <div>
+            <div class="page">
+                <div class="md_page_view column" md-src="https://api.github.com/repos/one-dev-man/gitclass/contents/README.md?ref=main">
+                <!-- <div class="md_page_view column"> -->
+                </div>
+                <div class="menu">
+
+                </div>
+            </div>
+            <div class="footer">
+                <div class="md_page_view clear" md-src="/md-pages/__footer/contacts.md">
+                </div>
+                <div class="md_page_view clear" md-src="/md-pages/__footer/about.md">
+                </div>
             </div>
         </div>
     </div>

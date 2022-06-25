@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clearTimeout(colormode_transition_timeout);
             colormode_transition_timeout = setTimeout(() => {
                 document.body.classList.remove("colormode_transition");
-            },1001)
+            },251)
             localStorage.setItem("__colormode__", "darkmode")
         }
         else if(document.body.classList.contains("darkmode")) {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clearTimeout(colormode_transition_timeout);
             colormode_transition_timeout = setTimeout(() => {
                 document.body.classList.remove("colormode_transition");
-            },1001)
+            },251)
             localStorage.setItem("__colormode__", "lightmode")
         }
     })
