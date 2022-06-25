@@ -7,10 +7,10 @@ div#colormode {
     display: inline-block;
     flex-direction: row;
     align-items: center;
-    left: 10px;
-    top: 10px;
-    width: 48px;
-    height: 24px;
+    left: calc(100% - 0.5vmax - 2.5vmax);
+    top: 0.5vmax;
+    width: 2.5vmax;
+    height: 1.25vmax;
     cursor: pointer;
     transition: all 0.25s;
 }
@@ -53,18 +53,18 @@ div#colormode .modes .dark {
 div#colormode .select {
     position: relative;
     display: block;
-    top: calc(-100% + 20%);
+    top: calc(-100% + 17%);
     width: calc(50% - 25%);
     height: calc(100% - 50%);
     background-color: #efefef;
     background-position: 50% 50%;
-    border: 1px rgba(0, 0, 0, 0.25) solid;
+    border: 0.1vmax rgba(0, 0, 0, 0.25) solid;
     border-radius: 100%;
     transition: all 0.25s;
 }
 body.lightmode div#colormode .select {
-    left: calc(50% + 8.5%);
+    left: calc(50% + 10%);
 }
 body.darkmode div#colormode .select {
-    left: 12.5%;
+    left: 10%;
 }
