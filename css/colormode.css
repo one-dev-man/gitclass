@@ -1,0 +1,70 @@
+body.colormode_transition, body.colormode_transition * {
+    transition: all 0.5s;
+}
+
+div#colormode {
+    position: absolute;
+    display: inline-block;
+    flex-direction: row;
+    align-items: center;
+    left: 10px;
+    top: 10px;
+    width: 48px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+body.lightmode div#colormode .modes .light, body.lightmode div#colormode .modes .dark {
+    background-color: #FD4405;
+}
+body.darkmode div#colormode .modes .light, body.darkmode div#colormode .modes .dark {
+    background-color: #19181E;
+}
+
+div#colormode .modes {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+div#colormode .modes .light {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 30% 0px 0px 30%;
+    background: url(/img/colormode/light.png) 50% 50% no-repeat;
+    background-size: 50%;
+}
+div#colormode .modes .dark {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 30% 30% 0px;
+    background: url(/img/colormode/dark.png) 50% 50% no-repeat;
+    background-size: 40%;
+}
+
+div#colormode .select {
+    position: relative;
+    display: block;
+    top: calc(-100% + 20%);
+    width: calc(50% - 25%);
+    height: calc(100% - 50%);
+    background-color: #efefef;
+    background-position: 50% 50%;
+    border: 1px rgba(0, 0, 0, 0.25) solid;
+    border-radius: 100%;
+    transition: all 0.25s;
+}
+body.lightmode div#colormode .select {
+    left: calc(50% + 8.5%);
+}
+body.darkmode div#colormode .select {
+    left: 12.5%;
+}
