@@ -1,1 +1,1 @@
-# <a href="https://gitclass.ml/"><img src="https://gitclass.ml/img/banner.png" width="512" height="170"></a>
+<h1 id="gitclass-icon"><a href="https://gitclass.ml/"><img src="https://gitclass.ml/img/banner.png" width="512" height="170"></a></h1>
