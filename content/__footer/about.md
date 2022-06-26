@@ -1,2 +1,1 @@
-Contributors :
- * [@one-dev-man](https://github.com/one-dev-man)
+##### Contributor(s) : [@one-dev-man](https://github.com/one-dev-man)
