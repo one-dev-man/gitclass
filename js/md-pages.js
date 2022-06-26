@@ -81,7 +81,7 @@ function fetchContent(_url) {
 function pathJoin(...p) {
     let r = ""+p[0];
     for(let i = 1; i < p.length; ++i) {
-        r+=(p2.startsWith("/") ? "" : "/")+p[i];
+        r+=(p[i].startsWith("/") ? "" : "/")+p[i];
     }
     r = r.replace(/\/\//g, "/");
     return r;
