@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         +window.location.hostname
         +":"
         +window.location.port
-        +pathJoin("/md_pages/", window.location.pathname)
+        +pathJoin("/md/", window.location.pathname)
         +window.location.hash
         +window.location.search
     )
