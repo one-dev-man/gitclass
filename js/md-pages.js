@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         +window.location.hostname
         +":"
         +window.location.port
-        +pathJoin("/md-pages/", window.location.pathname)
+        +pathJoin(window.pathname, "/md-pages/", window.location.pathname)
         +window.location.hash
         +window.location.search
     )
@@ -78,9 +78,11 @@ function fetchContent(_url) {
     });
 }
 
-function pathJoin(p1, p2) {
-    let r = ""+p1;
-    r+=(p2.startsWith("/") ? "" : "/")+p2;
+function pathJoin(...p) {
+    let r = ""+p[0];
+    for(let i = 1; i < p.length; ++i) {
+        r+=(p2.startsWith("/") ? "" : "/")+p[i];
+    }
     r = r.replace(/\/\//g, "/");
     return r;
 }
