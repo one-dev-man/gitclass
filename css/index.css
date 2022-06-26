@@ -44,8 +44,11 @@ body, html {
 ::-webkit-scrollbar {
     width: 0.5vmax;
 }
-::-webkit-scrollbar-track {
-    background: transparent;
+body.lightmode ::-webkit-scrollbar-track {
+    background: var(--lightmode-border-color);
+}
+body.darkmode ::-webkit-scrollbar-track {
+    background: var(--darkmode-border-color);
 }
 ::-webkit-scrollbar-thumb {
     background: #888;
