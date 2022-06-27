@@ -1,0 +1,20 @@
+body.lightmode svg.loading circle.color {
+    stroke: var(--lightmode-border-color);
+}
+body.darkmode svg.loading circle.color {
+    stroke: var(--darkmode-border-color);
+}
+
+body svg.loading.orange circle.color {
+    stroke: #fd4405;
+}
+body svg.loading.green circle.color {
+    stroke: #05fda2;
+}
+
+body.lightmode svg.loading circle.shadow {
+    stroke: rgba(0, 0, 0, 0.25);
+}
+body.darkmode svg.loading circle.shadow {
+    stroke: rgba(255, 255, 255, 0.25);
+}

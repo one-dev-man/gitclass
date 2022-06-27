@@ -1,0 +1,60 @@
+body div.header {
+    align-items: center;
+    justify-content: center;
+}
+
+body div.header div.login-area {
+    position: relative;
+    width: 20vmax;
+    /* height: 50vmin; */
+    z-index: 3;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 32px;
+    text-align: center;
+}
+body.lightmode div.header div.login-area {
+    background-color: var(--lightmode-smooth-color);
+}
+body.darkmode div.header div.login-area {
+    background-color: var(--darkmode-smooth-color);
+}
+
+
+
+body div.header div.login-area div.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+body div.header div.login-area div.content div.login {
+    opacity: 1;
+    z-index: 2;
+    transition: all 0.25s;
+}
+
+body div.header div.login-area div.content div.loading {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.25s;
+}
+
+body div.header div.login-area.in-loading div.content div.loading {
+    opacity: 1;
+    z-index: 2;
+}
+body div.header div.login-area.in-loading div.content div.login {
+    opacity: 0;
+    z-index: 1;
+}

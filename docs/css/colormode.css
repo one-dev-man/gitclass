@@ -7,12 +7,13 @@ div#colormode {
     display: inline-block;
     flex-direction: row;
     align-items: center;
-    left: calc(100% - 10px - 48px - 0.5vmax);
+    left: 10px;
     top: 10px;
     width: 48px;
     height: 24px;
     cursor: pointer;
     transition: all 0.25s;
+    z-index: 999;
 }
 
 body.lightmode div#colormode .modes .light, body.lightmode div#colormode .modes .dark {

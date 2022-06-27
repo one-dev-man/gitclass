@@ -1,0 +1,130 @@
+<head>
+    <title>gitclass</title>
+
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
+    
+    <!--  -->
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/components/buttons.css">
+    <link rel="stylesheet" type="text/css" href="/css/components/icons.css">
+    <link rel="stylesheet" type="text/css" href="/css/band-menu.css">
+    <link rel="stylesheet" type="text/css" href="/css/side-menu.css">
+
+    <!--  -->
+
+    <link rel="stylesheet" type="text/css" href="/css/colormode.css">
+    <script src="/ts-dist/components/colormode.js"></script>
+
+    <!--  -->
+
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/md_pages.css">
+    <script src="/ts-dist/components/md_pages.js"></script>
+
+    <!--  -->
+
+    <script src="/js/particles/particles.min.js"></script>
+    <script src="/ts-dist/particles/manage_particles.js"></script>
+
+    <script src="/ts-dist/index.js"></script>
+    <script src="/ts-dist/components/side-menu.js"></script>
+</head>
+<body>
+    <div id="background"></div>
+
+    <div class="header">
+        <div class="banner">
+            <img src="img/banner.png" width="512px">
+        </div>
+        <div id="particles"></div>
+        <div class="band-menu">
+            <section class="right">
+                <div class="menu-icon" style="zoom: 10%; fill: currentColor;">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="302px" height="302px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g><path style="opacity:0.986" d="M -0.5,79.5 C -0.5,77.5 -0.5,75.5 -0.5,73.5C 5.06727,53.8787 17.7339,47.0454 37.5,53C 49.7111,60.6205 53.8778,71.4538 50,85.5C 42.4733,100.675 30.64,105.509 14.5,100C 6.17192,95.4769 1.17192,88.6436 -0.5,79.5 Z"/></g>
+                        <g><path style="opacity:0.998" d="M 301.5,74.5 C 301.5,75.8333 301.5,77.1667 301.5,78.5C 300.515,86.673 296.182,92.5063 288.5,96C 219.5,96.6667 150.5,96.6667 81.5,96C 73.0868,92.3693 68.7534,85.8693 68.5,76.5C 68.6498,65.0095 74.3165,58.1761 85.5,56C 151.5,55.3333 217.5,55.3333 283.5,56C 294.331,57.5142 300.331,63.6808 301.5,74.5 Z"/></g>
+                        <g><path style="opacity:0.99" d="M -0.5,153.5 C -0.5,151.5 -0.5,149.5 -0.5,147.5C 4.11581,129.181 15.7825,122.014 34.5,126C 50.0921,133.76 54.9254,145.927 49,162.5C 39.0136,176.871 26.1802,180.038 10.5,172C 4.34837,167.18 0.681707,161.013 -0.5,153.5 Z"/></g>
+                        <g><path style="opacity:0.998" d="M 301.5,148.5 C 301.5,149.833 301.5,151.167 301.5,152.5C 300.515,160.673 296.182,166.506 288.5,170C 219.5,170.667 150.5,170.667 81.5,170C 73.0311,166.347 68.6978,159.847 68.5,150.5C 68.6978,141.153 73.0311,134.653 81.5,131C 150.5,130.333 219.5,130.333 288.5,131C 296.182,134.494 300.515,140.327 301.5,148.5 Z"/></g>
+                        <g><path style="opacity:0.986" d="M -0.5,227.5 C -0.5,225.5 -0.5,223.5 -0.5,221.5C 4.33475,203.537 16.0014,196.371 34.5,200C 49.9988,207.842 54.8321,220.009 49,236.5C 39.127,251.117 26.2936,254.283 10.5,246C 4.34837,241.18 0.681707,235.013 -0.5,227.5 Z"/></g>
+                        <g><path style="opacity:0.998" d="M 301.5,222.5 C 301.5,223.833 301.5,225.167 301.5,226.5C 300.331,237.319 294.331,243.486 283.5,245C 217.5,245.667 151.5,245.667 85.5,245C 74.3165,242.824 68.6498,235.991 68.5,224.5C 68.7534,215.131 73.0868,208.631 81.5,205C 150.5,204.333 219.5,204.333 288.5,205C 296.182,208.494 300.515,214.327 301.5,222.5 Z"/></g>
+                    </svg>
+                </div>
+            </section>
+            <section class="center">
+                
+            </section>
+            <section class="left">
+                <div class="button orange radius_10" id="github_connect" onclick="window.location.href = '/app/login';">
+                    <i style="position: relative; display: inline-block; width: 16px; height: 16px; background: url(/img/icon.png) 50% 50% no-repeat; background-size: contain;"></i>
+                    &nbsp;&nbsp;<a>Launch <code style="background-color: rgba(255, 255, 255, 0.125); padding: 0.2em 0.4em; border-radius: 6px;">gitclass</code></a>
+                </div>
+            </section>
+        </div>
+    </div>
+    <section class="body">
+        
+    </section>
+    <div class="footer">
+
+    </div>
+
+    <!--  -->
+
+    <div class="side-menu"></div>
+
+    <!--  -->
+
+    <noscript>
+        <div class="body">
+            <div class="page">
+                <div class="row">
+                    <div class="menu">
+                        <div class="title"><?xml version="1.0" encoding="UTF-8"?>
+                            <div class="icon" style="zoom: 5%; fill: currentColor;">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="302px" height="302px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g><path style="opacity:0.986" d="M -0.5,79.5 C -0.5,77.5 -0.5,75.5 -0.5,73.5C 5.06727,53.8787 17.7339,47.0454 37.5,53C 49.7111,60.6205 53.8778,71.4538 50,85.5C 42.4733,100.675 30.64,105.509 14.5,100C 6.17192,95.4769 1.17192,88.6436 -0.5,79.5 Z"/></g>
+                                    <g><path style="opacity:0.998" d="M 301.5,74.5 C 301.5,75.8333 301.5,77.1667 301.5,78.5C 300.515,86.673 296.182,92.5063 288.5,96C 219.5,96.6667 150.5,96.6667 81.5,96C 73.0868,92.3693 68.7534,85.8693 68.5,76.5C 68.6498,65.0095 74.3165,58.1761 85.5,56C 151.5,55.3333 217.5,55.3333 283.5,56C 294.331,57.5142 300.331,63.6808 301.5,74.5 Z"/></g>
+                                    <g><path style="opacity:0.99" d="M -0.5,153.5 C -0.5,151.5 -0.5,149.5 -0.5,147.5C 4.11581,129.181 15.7825,122.014 34.5,126C 50.0921,133.76 54.9254,145.927 49,162.5C 39.0136,176.871 26.1802,180.038 10.5,172C 4.34837,167.18 0.681707,161.013 -0.5,153.5 Z"/></g>
+                                    <g><path style="opacity:0.998" d="M 301.5,148.5 C 301.5,149.833 301.5,151.167 301.5,152.5C 300.515,160.673 296.182,166.506 288.5,170C 219.5,170.667 150.5,170.667 81.5,170C 73.0311,166.347 68.6978,159.847 68.5,150.5C 68.6978,141.153 73.0311,134.653 81.5,131C 150.5,130.333 219.5,130.333 288.5,131C 296.182,134.494 300.515,140.327 301.5,148.5 Z"/></g>
+                                    <g><path style="opacity:0.986" d="M -0.5,227.5 C -0.5,225.5 -0.5,223.5 -0.5,221.5C 4.33475,203.537 16.0014,196.371 34.5,200C 49.9988,207.842 54.8321,220.009 49,236.5C 39.127,251.117 26.2936,254.283 10.5,246C 4.34837,241.18 0.681707,235.013 -0.5,227.5 Z"/></g>
+                                    <g><path style="opacity:0.998" d="M 301.5,222.5 C 301.5,223.833 301.5,225.167 301.5,226.5C 300.331,237.319 294.331,243.486 283.5,245C 217.5,245.667 151.5,245.667 85.5,245C 74.3165,242.824 68.6498,235.991 68.5,224.5C 68.7534,215.131 73.0868,208.631 81.5,205C 150.5,204.333 219.5,204.333 288.5,205C 296.182,208.494 300.515,214.327 301.5,222.5 Z"/></g>
+                                </svg>
+                            </div>
+                            &nbsp;&nbsp;<a>Menu</a>
+                        </div>
+                        <div class="items">
+                            <div class="button black radius_10 github-connect-button" id="github_connect">
+                                <i style="position: relative; display: inline-block; width: 16px; height: 16px; background: url(https://github.githubassets.com/favicons/favicon-dark.svg) 50% 50% no-repeat; background-size: contain;"></i>
+                                &nbsp;&nbsp;<a>Connect with Github</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md_page_view column markdown-body" md-src="https://raw.githubusercontent.com/onedevman-org/gitclass/main/README.md">
+                    <!-- <div class="md_page_view column markdown-body"> -->
+                    </div>
+                    <div style="display: inline-block; width: 20%"></div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="md_page_view clear" md-src="/content/footer/contacts.md">
+                </div>
+                <div class="md_page_view clear" md-src="/content/footer/about.md">
+                </div>
+            </div>
+        </noscript>
+    </div>
+
+    <!--  -->
+
+    <div id="colormode">
+        <div class="modes">
+            <div class="light"></div>
+            <div class="dark"></div>
+        </div>
+        <div class="select"></div>
+    </div>
+
+</body>

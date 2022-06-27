@@ -1,0 +1,48 @@
+div#colormode {
+    top: calc(100px + 10px + 3px) !important;
+}
+
+/*  */
+
+body div.header div.band-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    z-index: 3;
+}
+body.lightmode div.header div.band-menu {
+    background-color: var(--lightmode-smooth-color);
+}
+body.darkmode div.header div.band-menu {
+    background-color: var(--darkmode-smooth-color);
+}
+
+body div.header div.band-menu section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 48px);
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+body div.header div.band-menu section:first-child { padding-left: 24px; }
+body div.header div.band-menu * {
+    border-right-width: 1px;
+    /* border-right-style: solid; */
+}
+body div.header div.band-menu section:last-child { padding-right: 24px; border-right-width: 0px; }
+body div.header div.band-menu section.right {
+    justify-content: start;
+}
+body div.header div.band-menu section.center {
+    justify-content: center;
+}
+body div.header div.band-menu section.left {
+    justify-content: end;
+}
