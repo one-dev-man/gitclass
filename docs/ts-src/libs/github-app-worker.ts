@@ -1,11 +1,11 @@
-class GithubAppWorker {
+export default class GithubAppWorker {
 
-    static ENDPOINTS = class {
-        static ROOT = "https://gitclass-github-app.dev-worker.workers.dev/";
+    static ENDPOINTS = {
+        get ROOT() { return "https://gitclass-github-app.dev-worker.workers.dev/" },
         
-        static OAUTH_CLIENT_ID = GithubAppWorker.pathJoin(GithubAppWorker.ENDPOINTS.ROOT, "/oauth/client/id");
+        get OAUTH_CLIENT_ID() { return GithubAppWorker.pathJoin(GithubAppWorker.ENDPOINTS.ROOT, "/oauth/client/id") },
 
-        static parse(endpoint: string, args: Object) {
+        parse(endpoint: string, args: Object) {
             let r = endpoint;
             Object.keys(args).forEach(k => {
                 r = r.replace(new RegExp("{{"+args[k]+"}}"), args[k]);
@@ -43,3 +43,7 @@ class GithubAppWorker {
         return r;
     }
 }
+
+export class TEST {
+    
+};

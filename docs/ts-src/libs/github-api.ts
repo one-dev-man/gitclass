@@ -1,11 +1,13 @@
-class GithubAPI {
+export default class GithubAPI {
 
-    static ENDPOINTS = class {
-        static ROOT = "https://api.github.com/";
+    static ENDPOINTS = {
+        get ROOT() { return "https://api.github.com/" },
 
-        static GET_AUTHENTICATED_USER = GithubAPI.pathJoin(GithubAPI.ENDPOINTS.ROOT, "/user")
+        get AUTHENTICATE() { return GithubAPI.pathJoin(GithubAPI.ENDPOINTS.ROOT, "/user") },
+
+        get GET_AUTHENTICATED_USER() { return GithubAPI.pathJoin(GithubAPI.ENDPOINTS.ROOT, "/user") },
         
-        static parse(endpoint: string, args: Object) {
+        parse(endpoint: string, args: Object) {
             let r = endpoint;
             Object.keys(args).forEach(k => {
                 r = r.replace(new RegExp("{{"+args[k]+"}}"), args[k]);
@@ -13,6 +15,12 @@ class GithubAPI {
             return r;
         }
     }
+
+    static auth(options: { code: string }) {
+
+    }
+
+    //
 
     static pathJoin(...p: string[]) {
         let r = ""+p[0];

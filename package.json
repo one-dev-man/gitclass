@@ -1,0 +1,27 @@
+{
+  "name": "pages-branch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "watchpile": "watchpile start ./docs/ts-src/ ./docs/ts-dist/ --tsconfig ./tsconfig.json --firstCompileAll",
+    "test": "http-server ./docs/ -p 80 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-dev-man/gitclass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/one-dev-man/gitclass/issues"
+  },
+  "homepage": "https://github.com/one-dev-man/gitclass#readme",
+  "devDependencies": {
+    "@types/node": "^18.0.0"
+  }
+}

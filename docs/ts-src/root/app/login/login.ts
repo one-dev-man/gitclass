@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", async () => {
+import GithubAppWorker from "../../../libs/github-app-worker";
+import GithubAPI from "../../../libs/github-api";
+
+// 
+
+(async () => {
+    console.log("test");
     let oauth_app_client_id = await GithubAppWorker.OAuth.getCliendId();
 
     let btns = document.body.querySelectorAll(".github-connect-button");
@@ -8,3 +14,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 });
+
+// 
+
+let github_auth_code = new URL(window.location.href).searchParams.get("code");
+
+if(github_auth_code) {
+    GithubAPI.auth({ code: github_auth_code });
+}

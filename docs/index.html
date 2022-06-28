@@ -15,22 +15,31 @@
     <!--  -->
 
     <link rel="stylesheet" type="text/css" href="/css/colormode.css">
-    <script src="/ts-dist/components/colormode.js"></script>
 
     <!--  -->
 
     <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
     <link rel="stylesheet" type="text/css" href="/css/md_pages.css">
-    <script src="/ts-dist/components/md_pages.js"></script>
 
     <!--  -->
 
-    <script src="/js/particles/particles.min.js"></script>
-    <script src="/ts-dist/particles/manage_particles.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-    <script src="/ts-dist/index.js"></script>
-    <script src="/ts-dist/components/side-menu.js"></script>
+    <script src="/ts-dist/libs/imports.js"></script>
+    <script>
+        imports.load([
+            "/ts-dist/libs/github-api.js",
+            "/ts-dist/libs/github-app-worker.js",
+
+            "/ts-dist/components/colormode.js",
+            "/ts-dist/components/icons.js",
+            "/ts-dist/components/md_pages.js",
+            "/ts-dist/components/side-menu.js",
+            
+            "/ts-dist/particles/manage_particles.js"
+        ]).main("/ts-dist/index.js");
+    </script>
 </head>
 <body>
     <div id="background"></div>

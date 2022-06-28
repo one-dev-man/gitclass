@@ -12,13 +12,17 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     }
     return privateMap.get(receiver);
 };
-var _authtoken, _a;
+var _authtoken;
+Object.defineProperty(exports, "__esModule", { value: true });
 class GithubAPI {
     constructor(authtoken) {
         // 
         _authtoken.set(this, void 0);
         __classPrivateFieldSet(this, _authtoken, authtoken);
     }
+    static auth(options) {
+    }
+    //
     static pathJoin(...p) {
         let r = "" + p[0];
         for (let i = 1; i < p.length; ++i) {
@@ -43,16 +47,17 @@ class GithubAPI {
         };
     }
 }
+exports.default = GithubAPI;
 _authtoken = new WeakMap();
-GithubAPI.ENDPOINTS = (_a = class {
-        static parse(endpoint, args) {
-            let r = endpoint;
-            Object.keys(args).forEach(k => {
-                r = r.replace(new RegExp("{{" + args[k] + "}}"), args[k]);
-            });
-            return r;
-        }
-    },
-    _a.ROOT = "https://api.github.com/",
-    _a.GET_AUTHENTICATED_USER = GithubAPI.pathJoin(GithubAPI.ENDPOINTS.ROOT, "/user"),
-    _a);
+GithubAPI.ENDPOINTS = {
+    get ROOT() { return "https://api.github.com/"; },
+    get AUTHENTICATE() { return GithubAPI.pathJoin(GithubAPI.ENDPOINTS.ROOT, "/user"); },
+    get GET_AUTHENTICATED_USER() { return GithubAPI.pathJoin(GithubAPI.ENDPOINTS.ROOT, "/user"); },
+    parse(endpoint, args) {
+        let r = endpoint;
+        Object.keys(args).forEach(k => {
+            r = r.replace(new RegExp("{{" + args[k] + "}}"), args[k]);
+        });
+        return r;
+    }
+};

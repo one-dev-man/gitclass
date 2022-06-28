@@ -1,5 +1,6 @@
 "use strict";
-var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TEST = void 0;
 class GithubAppWorker {
     static pathJoin(...p) {
         let r = "" + p[0];
@@ -10,18 +11,18 @@ class GithubAppWorker {
         return r;
     }
 }
-GithubAppWorker.ENDPOINTS = (_a = class {
-        static parse(endpoint, args) {
-            let r = endpoint;
-            Object.keys(args).forEach(k => {
-                r = r.replace(new RegExp("{{" + args[k] + "}}"), args[k]);
-            });
-            return r;
-        }
-    },
-    _a.ROOT = "https://gitclass-github-app.dev-worker.workers.dev/",
-    _a.OAUTH_CLIENT_ID = GithubAppWorker.pathJoin(GithubAppWorker.ENDPOINTS.ROOT, "/oauth/client/id"),
-    _a);
+exports.default = GithubAppWorker;
+GithubAppWorker.ENDPOINTS = {
+    get ROOT() { return "https://gitclass-github-app.dev-worker.workers.dev/"; },
+    get OAUTH_CLIENT_ID() { return GithubAppWorker.pathJoin(GithubAppWorker.ENDPOINTS.ROOT, "/oauth/client/id"); },
+    parse(endpoint, args) {
+        let r = endpoint;
+        Object.keys(args).forEach(k => {
+            r = r.replace(new RegExp("{{" + args[k] + "}}"), args[k]);
+        });
+        return r;
+    }
+};
 GithubAppWorker.OAuth = class {
     static getCliendId() {
         return new Promise((resolve, reject) => {
@@ -40,3 +41,7 @@ GithubAppWorker.OAuth = class {
         });
     }
 };
+class TEST {
+}
+exports.TEST = TEST;
+;

@@ -1,6 +1,6 @@
 {
   "include": ["./**/*"],
-  "exclude": ["./node_modules", "./**/*.js", "./docs/**/*"],
+  "exclude": ["./node_modules/", "./**/*.js", "./docs/**/*"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
