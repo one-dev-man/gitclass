@@ -9,7 +9,7 @@ export default class GithubAppWorker {
         parse(endpoint, args) {
             let r = endpoint;
             Object.keys(args).forEach(k => {
-                r = r.replace(new RegExp("{{"+args[k]+"}}"), args[k]);
+                r = r.replace(new RegExp("\\{\\{"+k+"\\}\\}", "g"), args[k]);
             });
             return r;
         }
