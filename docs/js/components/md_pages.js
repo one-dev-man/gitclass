@@ -1,4 +1,4 @@
-let converter = new global.showdown.Converter();
+let converter = showdown.Converter();
 
 let current_md_page_url = new URL(
     window.location.protocol
@@ -13,32 +13,32 @@ let current_md_page_url = new URL(
 
 document.querySelectorAll(".md_page_view").forEach(async (md_page_view) => {
     try {
-        let _url = md_page_view.getAttribute("md-src") || current_md_page_url as any;
+        let _url = md_page_view.getAttribute("md-src") || current_md_page_url;
         try {
             _url = new URL(_url);
         } catch(e) {
-            let p = _url as string;
-            _url = new URL(current_md_page_url as any);
+            let p = _url;
+            _url = new URL(current_md_page_url);
             _url.pathname = p
         }
 
-        let md_page_content: string | null = null;
+        let md_page_content = null;
         await new Promise((resolve, reject) => {
-            fetchContent(_url).then((c: any) => {
+            fetchContent(_url).then((c) => {
                 md_page_content = c;
                 resolve(true);
             }).catch(e => {
                 if(e.code == 404) {
-                    let __url = new URL(_url as any);
+                    let __url = new URL(_url);
                     __url.pathname+=".md";
-                    fetchContent(__url).then((c: any) => {
+                    fetchContent(__url).then((c) => {
                         md_page_content = c;
                         resolve(true);
                     }).catch(e => {
                         if(e.code == 404) {
-                            let __url = new URL(_url as any);
+                            let __url = new URL(_url);
                             __url.pathname = pathJoin(__url.pathname, "index.md");
-                            fetchContent(__url).then((c: any) => {
+                            fetchContent(__url).then((c) => {
                                 md_page_content = c;
                                 resolve(true);
                             }).catch(e => reject);
@@ -62,9 +62,9 @@ document.querySelectorAll(".md_page_view").forEach(async (md_page_view) => {
     } catch(e) { console.error(e); }
 });
 
-function fetchContent(_url: string | URL) {
+function fetchContent(_url) {
     return new Promise((resolve, reject) => {
-        fetch(_url as any, {
+        fetch(_url, {
             method: "GET",
             mode: "cors",
             headers: {
@@ -80,7 +80,7 @@ function fetchContent(_url: string | URL) {
         }).catch(e => reject);
     });
 }
-function pathJoin(...p: string[]) {
+function pathJoin(...p) {
     let r = ""+p[0];
     for(let i = 1; i < p.length; ++i) {
         r+=(p[i].startsWith("/") ? "" : "/")+p[i];
