@@ -1,5 +1,5 @@
-import GithubAppWorker from "../../../libs/github-app-worker.js";
-import GithubAPI from "../../../libs/github-api.js";
+import GithubAppWorker from "../../libs/github-app-worker.js";
+import GithubAPI from "../../libs/github-api.js";
 
 // 
 
@@ -20,21 +20,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         let needs_login = false;
 
-        if(!(await GithubAPI.isValid({ accesstoken: stored_accesstoken() }))) {
+        if(!(await GithubAPI.isValid({ accesstoken: await GithubAppWorker.OAuth.accesstoken() || "" }))) {
             let github_auth_code = new URL(window.location.href).searchParams.get("code");
             if(github_auth_code) {
-                stored_accesstoken(await GithubAppWorker.OAuth.accesstoken(github_auth_code));
+                await GithubAppWorker.OAuth.accesstoken(github_auth_code);
             }
             else needs_login = true;
         }
 
         if(needs_login) login_area.classList.remove("in-loading");
-        else window.location.href = "/app/";
+        else window.location.href = "/dashboard/";
 
     } catch(e) { console.error(e); }
 });
-
-function stored_accesstoken(v) {
-    v ? localStorage.setItem("github_api_accesstoken", v) : null;
-    return localStorage.getItem("github_api_accesstoken");
-}

@@ -22,47 +22,45 @@ document.addEventListener("DOMContentLoaded", () => {
                             stored_icon_sha = elem.querySelector("noscript[sha]");
                         }
     
+                        console.log(icon_sha, stored_icon_sha.innerHTML, icon_sha == stored_icon_sha.innerHTML);
                         if(icon_sha != stored_icon_sha.innerHTML) {
                             let response = await fetch(icon_src, {
                                 method: "GET",
                                 mode: "cors"
                             });
 
+                            elem.querySelector("svg")?.remove();
+
                             if(response.status == 200) {
                                 let content_type = response.headers.get("Content-Type");
                 
                                 if(content_type.startsWith("image/svg")) {
                                     let xml = await response.text();
-    
-                                    elem.innerHTML = xml;
-                            
-                                    let svg_list = elem.querySelectorAll("svg");
-                        
-                                    for(let j = 0; j < svg_list.length; ++j) {
-                                        let svg = svg_list[j];
-                                        svg.setAttribute("width", elem.getAttribute("width") || elem.getAttribute("height") || "")
-                                        svg.setAttribute("height", elem.getAttribute("height") || elem.getAttribute("width") || "")
-                                        elem.classList.forEach(c => { svg.classList.add(c); });
-                                    }
-        
-                                    stored_icon_sha.innerHTML = await sha_1(getQuerySelector(elem));
 
-                                    if(_i == icon_elements.length-1) {
-                                        resolve(true);
-                                    }
+                                    elem.insertAdjacentHTML("afterbegin", xml);
+                            
+                                    let svg = elem.querySelector("svg");
+                        
+                                    svg?.setAttribute("width", elem.getAttribute("width") || elem.getAttribute("height") || "")
+                                    svg?.setAttribute("height", elem.getAttribute("height") || elem.getAttribute("width") || "")
+                                    elem.classList.forEach(c => { svg?.classList.add(c); });
                                 }
                                 else console.error("Invalid file : must be an SVG xml file.");
                             }
+
+                            stored_icon_sha.innerHTML = await sha_1(getQuerySelector(elem));
                         }
                     } catch(e) { console.error(e); }
+
+                    if(_i == icon_elements.length-1) resolve(true);
                 })();
             }
         });
 
-        icons_elements_observer.observe(document.body, { childList:true, subtree:true });
+        icons_elements_observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeOldValue: true, characterData: true, characterDataOldValue: true });
     });
 
-    icons_elements_observer.observe(document.body, { childList:true, subtree:true });
+    icons_elements_observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeOldValue: true, characterData: true, characterDataOldValue: true });
 });
 
 function getQuerySelector(element) {

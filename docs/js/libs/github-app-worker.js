@@ -77,20 +77,23 @@ export default class GithubAppWorker {
         }
 
         static async accesstoken(code) {
-            let accesstoken = null;
+            if(code) {
+                let accesstoken = null;
 
-            let response = await GithubAppWorker.sendRequest(
-                "GET",
-                GithubAppWorker.ENDPOINTS.OAUTH_ACCESSTOKEN,
-                { code: code }
-            );
+                let response = await GithubAppWorker.sendRequest(
+                    "GET",
+                    GithubAppWorker.ENDPOINTS.OAUTH_ACCESSTOKEN,
+                    { code: code }
+                );
 
-            if(response.code == 200) {
-                let jsonresp = JSON.parse(response.content);
-                accesstoken = jsonresp ? jsonresp.accesstoken : accesstoken;
+                if(response.code == 200) {
+                    let jsonresp = JSON.parse(response.content);
+                    accesstoken = jsonresp ? jsonresp.accesstoken : accesstoken;
+                }
+
+                return stored_accesstoken(accesstoken);
             }
-
-            return accesstoken;
+            else return stored_accesstoken();
         }
 
     }
@@ -105,6 +108,7 @@ export default class GithubAppWorker {
     }
 }
 
-export class TEST {
-    
-};
+function stored_accesstoken(v) {
+    v ? localStorage.setItem("github_api_accesstoken", v) : null;
+    return localStorage.getItem("github_api_accesstoken");
+}

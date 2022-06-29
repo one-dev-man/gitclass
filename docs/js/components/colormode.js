@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+    document.body.insertAdjacentHTML("beforeend",`
+    <div id="colormode">
+        <div class="modes">
+            <div class="light"></div>
+            <div class="dark"></div>
+        </div>
+        <div class="select"></div>
+    </div>`);
+
     if(localStorage.getItem("__colormode__")) {
         document.body.classList.remove("lightmode");
         document.body.classList.remove("darkmode");

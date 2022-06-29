@@ -1,0 +1,162 @@
+div#colormode {
+    left: calc(100% - 48px - 10px) !important;
+    top: calc(100px + 10px + 3px) !important;
+}
+
+/*  */
+
+body div#dashboard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/*  */
+
+body div#dashboard div.head {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/*  */
+
+body div#dashboard div.head div.menu {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+body.lightmode div#dashboard div.head div.menu {
+    background-color: var(--lightmode-background-color);
+}
+body.darkmode div#dashboard div.head div.menu {
+    background-color: var(--darkmode-smooth-color);
+}
+
+body div#dashboard div.head div.menu section {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+body div#dashboard div.head div.menu section:first-child { padding-left: 16px; }
+body div#dashboard div.head div.menu section:last-child { padding-right: 16px; }
+body div#dashboard div.head div.menu section.left {
+    justify-content: left;
+}
+body div#dashboard div.head div.menu section.center {
+    justify-content: center;
+}
+body div#dashboard div.head div.menu section.right {
+    justify-content: right;
+}
+
+/*  */
+
+body div#dashboard div.body {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    width: 100%;
+}
+
+/*  */
+
+body div#dashboard div.body div.menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100%;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+body.lightmode div#dashboard div.body div.menu {
+    background-color: var(--lightmode-background-color);
+}
+body.darkmode div#dashboard div.body div.menu {
+    background-color: var(--darkmode-smooth-color);
+}
+
+body div#dashboard div.body div.menu div.head {
+    position: relative;
+    display: flex;
+    width: calc(100% - 16px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    height: 48px;
+    padding: 8px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-bottom: 4px;
+}
+
+body div#dashboard div.body div.menu section {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 32px 0px 32px;
+}
+body div#dashboard div.body div.menu section {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+body div#dashboard div.body div.menu section:last-of-type {
+    border-bottom-width: 0px;
+}
+
+body div#dashboard div.body div.menu section.top,
+body div#dashboard div.body div.menu section.bottom { height: 16%; }
+
+body div#dashboard div.body div.menu section.center { height: 68%; }
+
+body div#dashboard div.body div.menu section div.item {
+    position: relative;
+    display: flex;
+    width: calc(100% - 4px - 8px - 64px + 64px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    height: 25px;
+    padding: 8px;
+    padding-right: 64px;
+    margin-left: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+    transition: height 0s;
+    user-select: none;
+}
+
+body div#dashboard div.body div.menu section div.item:hover,
+body div#dashboard div.body div.menu section div.item.selected {
+    border-width: 1px 0px 1px 1px;
+    border-radius: 10px 0px 0px 10px;
+    border-style: solid;
+    width: calc(100% - 4px - 8px - 64px + 64px - 1px);
+    height: calc(25px - 2px);
+}
+body.lightmode div#dashboard div.body div.menu section div.item:hover:not(.selected) {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+body.darkmode div#dashboard div.body div.menu section div.item:hover:not(.selected) {
+    background-color: rgba(255, 255, 255, 0.025);
+}
+body div#dashboard div.body div.menu section div.item.selected {
+    background-color: rgba(0, 255, 180, 0.05);
+}
