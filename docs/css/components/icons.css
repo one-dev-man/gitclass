@@ -1,3 +1,9 @@
+icon[src] {
+    fill: currentColor;
+}
+
+/*  */
+
 body.lightmode svg.loading circle.color {
     stroke: var(--lightmode-border-color);
 }

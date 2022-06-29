@@ -15,38 +15,82 @@ export default class GithubAppWorker {
         }
     }
 
-    static OAuth = class {
+    //
 
-        static clientid() {
-            return new Promise((resolve, reject) => {
-                fetch(GithubAppWorker.ENDPOINTS.parse(GithubAppWorker.ENDPOINTS.OAUTH_CLIENT_ID, {}), {
-                    method: "GET",
-                    mode: "cors"
-                }).then(response => {
-                    if(response.status == 200) {
-                        response.json().then(respjson => {
-                            resolve(respjson.id);
-                        }).catch(e => reject);
-                    }
-                    else reject({ code: response.status, text: response.statusText });
-                }).catch(e => reject);
-            });
+    static async sendRequest(method, endpoint, params={}, options={ accesstoken: undefined, headers: {}, body: undefined }) {
+        options = options || {};
+
+        options.accesstoken = options.accesstoken || undefined;
+        options.headers = options.headers || { "Accept": "application/vnd.github.v3+json" };
+        options.body = options.body || undefined;
+
+        let request_options = {};
+            request_options.method = method;
+            request_options.headers = options.headers;
+            request_options.body = options.body;
+
+            options.accesstoken ?request_options.headers["Authorization"] = `token ${options.accesstoken}` : null;
+
+        let result = {
+            code: null,
+            status: null,
+            content: null
         }
 
-        static accesstoken(code) {
-            return new Promise((resolve, reject) => {
-                fetch(GithubAppWorker.ENDPOINTS.parse(GithubAppWorker.ENDPOINTS.OAUTH_ACCESSTOKEN, { code: code }), {
-                    method: "GET",
-                    mode: "cors"
-                }).then(response => {
-                    if(response.status == 200) {
-                        response.json().then(jsonresp => {
-                            resolve(jsonresp.accesstoken);
-                        }).catch(e => reject);
-                    }
-                    else reject({ code: response.status, text: response.statusText });
-                }).catch(e => reject);
-            });
+        try {
+            let response = await fetch(
+                GithubAppWorker.ENDPOINTS.parse(endpoint, params),
+                request_options
+            );
+            
+            let textresp = null;
+            try { textresp = await response.text(); } catch(e) {}
+
+            result.code = response.status
+            result.status = response.statusText
+            result.content = textresp
+
+            if(response.status != 200) console.error(result);
+        } catch(e) { console.error(e); }
+
+        return result;
+    }
+
+    //
+
+    static OAuth = class {
+
+        static async clientid() {
+            let clientid = null;
+
+            let response = await GithubAppWorker.sendRequest(
+                "GET",
+                GithubAppWorker.ENDPOINTS.OAUTH_CLIENT_ID
+            );
+
+            if(response.code == 200) {
+                let jsonresp = JSON.parse(response.content);
+                clientid = jsonresp ? jsonresp.id : clientid;
+            }
+
+            return clientid;
+        }
+
+        static async accesstoken(code) {
+            let accesstoken = null;
+
+            let response = await GithubAppWorker.sendRequest(
+                "GET",
+                GithubAppWorker.ENDPOINTS.OAUTH_ACCESSTOKEN,
+                { code: code }
+            );
+
+            if(response.code == 200) {
+                let jsonresp = JSON.parse(response.content);
+                accesstoken = jsonresp ? jsonresp.accesstoken : accesstoken;
+            }
+
+            return accesstoken;
         }
 
     }
