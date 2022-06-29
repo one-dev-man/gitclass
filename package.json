@@ -1,6 +1,5 @@
 {
     "scripts": {
-        "serve": "http-server ./docs/ -p 80 -c-1",
-        "publish": "git add . && (git commit -m \"update\" && git push -u -f origin web) || git push -u -f origin web"
+        "serve": "http-server ./docs/ -p 80 -c-1"
     }
 }
