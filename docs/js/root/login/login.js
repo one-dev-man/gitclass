@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                         }
                     }, 25);
 
-                    login_popup.addEventListener("message", (e) => {
-                        console.log(e);
+                    window.addEventListener("message", (e) => {
+                        console.log(e.data);
                     });
                 }
                 else {
